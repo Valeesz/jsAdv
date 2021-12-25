@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    Запросите у пользователя ввести какую-то фразу. 
+    Отобразите каждое отдельное слово в виде списка ul li. 
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. 
+    Найдите все буквы "а" их количество в модальное окно. 
+ -->
+ 
+    <script>
+        var form = document.createElement('form');
+        document.body.appendChild(form);
+        var inf = prompt('Enter smth');
+        var infSplit = inf.split('');
+        var newUl = document.createElement('ul');
+        form.appendChild(newUl);
+        var char = 'a';
+        var newInf = inf.split(' ');
+        var count = 0;
+        //var newLi ;//= document.newUl.createElement('li');
+        for(var i = 0; i<newInf.length;i++){
+            var newLi = document.createElement('li');
+            newLi.innerHTML = newInf[i];
+            newUl.appendChild(newLi);
+            if(i===0){
+                newLi.innerHTML = newLi.innerHTML.toUpperCase();
+            }
+            if(i===newInf.length-2){
+                newLi.innerHTML = newLi.innerHTML.toLowerCase();
+            }
+            if(i===newInf.length-1){
+                newLi.innerHTML = newLi.innerHTML.toLowerCase();
+            }
+        }
+
+
+        for(var i = 0; i<infSplit.length;i++){
+            if(infSplit[i].includes(char)){
+                count++;
+            }
+            
+        }
+        //console.log(newInf);
+        alert('a -' + count);
+    </script>
+</body>
+</html>

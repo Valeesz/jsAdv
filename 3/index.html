@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+    также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
+    обнуляющую отcчет. Также попробуйте изменить код так чтобы отсчет начинался с 30 и заканчивался на 1. -->
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>    
+    <script>
+        // var i = 1;
+        // var interval;
+        // function start() {
+        //     interval = setInterval(function(){
+        //         if(i!==31) { 
+        //             console.log(i);
+        //             i++;
+        //         }
+        //     },1000);
+        // }
+
+        // function stop() {
+        //     clearInterval(interval);
+        // }
+        // function reset() {
+        //     i=1;
+        // }
+
+            //C 30
+
+
+        var i = 30;
+        var interval;
+        function start() {
+            interval = setInterval(function(){
+                if(i!==-1) { 
+                    console.log(i);
+                    i--;
+                }else {
+
+                    i=30;
+                }
+            },1000);
+        }
+
+        function stop() {
+            clearInterval(interval);
+        }
+        function reset() {
+            i=30;
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

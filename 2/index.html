@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+    <h1 id="id1">Title</h1>
+    <div class="class1" >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla consequuntur, obcaecati recusandae enim laboriosam eaque, sint incidunt. Perferendis mollitia incidunt blanditiis eveniet, fuga sapiente. Magni dicta maxime fugiat sint soluta?        
+    </div>
+
+    <script>
+        var hFirst = document.querySelector('#id1');
+        var divFirst = document.querySelector('.class1');
+
+        hFirst.style.color = 'red';
+        hFirst.style.marginTop = '10px';
+        hFirst.style.background = 'red';
+
+        divFirst.style.cssText = "color: blue; font-size: 14px; text-decoration: underline; "; 
+        divFirst.classList.add('newclass');
+        var computedStyle = getComputedStyle(divFirst);
+        console.log(computedStyle);
+        
+    </script>
+</body>
+</html>
+
+<!-- 
+    Перепишите все селекторы из первой папки 001_CSS_Selectors с помощью известных Вам методов и свойств.
+    В примере с классом добавьте к существующем классу, класс с именем newclass, а также выведите в консоль все стили что есть у элемента с этим классом
+    В примере с индентификатором добавьте свойства marginTop с значением 10px и background с значением red
+ -->
