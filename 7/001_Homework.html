@@ -1,0 +1,35 @@
+<!-- Создайте функцию, которая возвращает день недели для даты.
+День нужно возвратить в формате - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+
+
+</head>
+<body>
+
+    <script>
+
+        function getDayOfDate(date) {
+            var temp = date.getDay();
+            console.log(date);
+            switch(temp){
+                case 1: console.log("Heute ist Montag / Today is Monday"); break;
+                case 2: console.log("Heute ist Dienstag  / Today is Tuesday"); break;
+                case 3: console.log("Heute ist Mittwoch  / Today is Wednesday"); break;
+                case 4: console.log("Heute ist Donnerstag  / Today is Thursday"); break;
+                case 5: console.log("Heute ist Freitag  / Today is Friday"); break;
+                case 6: console.log("Heute ist Samstag  / Today is Saturday"); break;
+                case 0: console.log("Heute ist Sonntag  / Today is Sunday"); break;
+                default: console.log("Fehler"); break;
+            }
+        }
+
+
+        var date = new Date();
+        getDayOfDate(date);
+    </script>
+</body>
+</html>

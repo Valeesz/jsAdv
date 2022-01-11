@@ -1,0 +1,76 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    
+</head>
+<body>
+    <script>
+        class Man{
+            constructor(name, surname){
+                this.name = name;
+                this.surname = surname;
+            }
+            walk(){
+                return `${this.name} ${this.surname} gehen`
+            }
+            eat(){
+                return `${this.name} ${this.surname} essen`
+            }
+            drink(){
+                return `${this.name} ${this.surname} drinken`
+            }
+
+        }
+
+        class Soldier extends Man{
+            shoot(){
+                return `BOOM!`
+            }
+        }
+
+        class Doctor extends Man{
+            cure(){
+                return `Heal!`
+            }
+        }
+
+        class Dentist extends Doctor{
+            cure(){
+                return `Treat teeth`
+            }
+        }
+
+        class Surgeon extends Doctor{
+            cure(){
+                return `Perform operations`
+            }
+        }
+
+        let persOne = new Soldier('Thorin', 'Oakenshield');
+        let persTwo = new Doctor('Oin', 'Moriiy');
+
+        let persThree = new Dentist('Victor', 'Rein');
+        let persFour = new Surgeon('Mike', 'Stern');
+
+        console.log(persOne);
+        console.log(persOne.shoot());
+        console.log(persOne.walk());
+
+        console.log(persTwo);
+        console.log(persTwo.drink());
+        console.log(persTwo.cure());
+
+        console.log(persThree);
+        console.log(persThree.eat());
+        console.log(persThree.cure());
+
+        console.log(persFour);
+        console.log(persFour.walk());
+        console.log(persFour.cure());
+
+    </script>
+</body>
+</html>
