@@ -1,0 +1,89 @@
+<!-- Доработайте пример, 005_thisExample.html, при наведении мыши к одному из блоков, цвет блока должен измениться, на уникальный, такой которого еще нету у существующих блоков.
+Также выведите в блок текстовое оповещение о информации цвета, который используется для фона данного блока.
+При попытке закрыть вкладку, придупредите пользователя о том что информация будет утеряна. Используйте window.onload.  -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ключевое слово this</title>
+    <style>
+        div {
+            background-color:green;
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <br>
+    <!-- <button onclick="setHandler()">Поставить window.onbeforeunload</button> -->
+    <a href="https://www.google.com/">Google</a>
+    <script>
+       window.onbeforeunload = function(event) {
+            event.returnValue = "Write something clever here..";
+        };
+        var divArr = document.getElementsByTagName("div");
+        var color = ['yellow', 'blue', 'black', 'gray', 'orange'];
+        var current = 0;
+        //var i=0;
+       
+        for (var i = 0; i < divArr.length; i++) {
+            if(i < color.length+1){   
+                divArr[i].onmouseover = function() {
+                    
+                    this.style.background = color[current];
+                    this.innerHTML = color[current];
+                    current++;
+                }
+            }else {i=0;current=0;}
+        }
+                
+
+
+
+
+
+
+//РАБОЧИЙ КОД
+      
+        // console.log(divArr);
+        // console.log(color);
+        // function moveHandler() {
+                       
+        //     this.style.background = color[current];
+        //     current++;
+        // }
+        // for (var i = 0; i < divArr.length; i++) {
+        //     if(i < color.length){   
+        //     divArr[i].onmouseover = moveHandler;
+        //     }
+            
+        //     if(i > color.length+1){
+        //         current=0;
+        //         i=0;
+        //         divArr[i].onmouseover = moveHandler;
+        //     }
+        //     divArr[i].onmouseout = function() {
+        //         this.style.background = 'green';
+        //         //current++;
+        //     } 
+            
+            
+        // }
+
+    </script>
+
+</body>
+</html>
+  

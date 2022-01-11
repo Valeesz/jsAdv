@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+        .div-group {
+            background-color:rgb(127, 199, 221);
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            justify-content: center;
+            
+        }
+        button {
+            width: 40px;
+        }
+        p{
+            margin-top: 35px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    1. Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик.
+
+    2. Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы,
+    подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->
+    <div id = 'parent'>
+        
+        <div class = 'div-group'>
+            <p>Erste</p>
+            <button class = 'btn-delete'>Del</button>
+        </div>
+        <div class = 'div-group'>
+            <p>Zweite</p>
+            <button class = 'btn-delete'>Del</button>
+        </div>
+        <div class = 'div-group'>
+            <p>Dritte</p>
+            <button class = 'btn-delete'>Del</button>
+        </div>
+        <div class = 'div-group'>
+            <p>Vierte</p>
+            <button class = 'btn-delete'>Del</button>
+        </div>
+        <div class = 'div-group'>
+            <p>Funfte</p>
+            <button class = 'btn-delete'>Del</button>
+        </div>
+    </div>
+   
+    <script>
+        var parent = document.querySelector('#parent');
+        
+        console.log(parent.tagName)
+        if(parent){
+            parent.addEventListener('click', function(e){
+                var target = e ? e.target : window.event.srcElement;
+                if (target.tagName !== 'BUTTON') {
+                    return
+                }
+                target = target.parentNode;
+                target.remove();
+            })
+        }
+    </script>
+
+
+</body>
+</html>

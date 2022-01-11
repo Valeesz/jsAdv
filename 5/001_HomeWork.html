@@ -1,0 +1,63 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,user-scalable=no">
+        <style>
+            div {
+                /* width: 200px; */
+                height: 200px;
+                text-align: center;
+                justify-content: center;
+                padding: 90px 0 0 0;
+                background-color: rgb(146, 200, 247);
+            }
+            a {
+               
+                margin-right: 50px;
+                margin-left: 30px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id='div-first' hidden>THis is DIV</div>
+        <a href="#" id = 'a-show'>Press here</a>
+        <button id ='btn-cancel'>Cancel</button>
+
+        <script>
+            
+            var divHide = document.querySelector('#div-first');
+            var aShow = document.querySelector('#a-show');
+            var btnCancel = document.querySelector('#btn-cancel');
+            var flagHidden;
+            //divHide.hidden = true;
+
+            aShow.addEventListener("click",divHidden);
+
+            function divHidden() {
+                    flagHidden =  divHide.hidden
+                    if(flagHidden==true){
+                        divHide.hidden = false;
+                    }else {
+                        divHide.hidden = true;
+                    }
+                }
+            btnCancel.onclick = function() {
+                aShow.removeEventListener("click", divHidden); 
+            }
+            // aShow.onclick = function() {
+            //     flagHidden =  divHide.hidden
+            //     if(flagHidden==true){
+            //         divHide.hidden = false;
+            //     }else {
+            //         divHide.hidden = true;
+            //     }
+            // }
+        </script>
+    </body>
+</html>
