@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <style>
+        #log-out{
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", start);
+        window.addEventListener('storage', storageHandler);
+        function storageHandler() {
+            if(localStorage.user){paragraph.innerHTML= `Hello, ${localStorage.getItem('userName')}`;}
+            
+            
+        }
+        function start() {
+            
+            
+            
+            let user = document.querySelector("#user");
+            let btnLogIn = document.querySelector("#log-in");
+            let btnLogOut = document.querySelector("#log-out");
+            let paragraph = document.querySelector("#text");
+            let temp;
+            btnLogIn.addEventListener("click", function () {
+
+                if(user.value.includes('Admin') || user.value.includes('admin')){
+                    user.style.visibility = "hidden";
+                    btnLogIn.style.visibility = "hidden";
+                    btnLogOut.style.visibility = "visible";
+                    localStorage.setItem('userName', user.value);
+                    sessionStorage.setItem('userName', user.value);
+                    paragraph.innerHTML= `Пользоваетль ${user.value} вошел в систему`;
+                }
+                else{
+                    paragraph.innerHTML = `Пользоваетль ${user.value} не найден`;
+                }
+                // if(user.innerHTML === "Admin" || user.innerHTML === "admin"){
+                //     document.querySelector("#user").style.visibility = "hidden";
+                //     btnLogIn.style.visibility = hidden;
+                //     btnLogOut.style.visibility = "visible";
+                // }
+            })
+           btnLogOut.addEventListener("click", function(){
+               paragraph.innerHTML = '';
+               btnLogOut.style.visibility = 'hidden';
+               btnLogIn.style.visibility = 'visible';
+               user.style.visibility = 'visible';
+
+               localStorage.user.delete;
+           })
+            function findCookieValue(cookieName) {
+                var allcookies = document.cookie;
+                var pos = allcookies.indexOf(cookieName + "=");
+
+                // Если cookie с указанным именем найден, извлечь его значения.
+                if (pos != -1) {
+                    var start = pos + cookieName.length + 1;
+                    var end = allcookies.indexOf(";", start);
+
+                    if (end == -1) end = allcookies.length;
+
+                    var value = allcookies.substring(start, end);
+                    value = decodeURIComponent(value);
+                    return value;
+                }
+            }
+        }
+    </script>
+    <input type="text" name="user" id="user">
+    <input type="button" value="Log In" id='log-in'>
+    <input type="button" value="Log Out" id='log-out'>
+    <p id = 'text'></p>
+    <!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу,
+    которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему"
+    а рядом разместите кнопку "Выход" которая вернет пользователя к модальному окну ввода логина. Реализуйте код как для куки так и для localstorage. -->
+</body>
+</html>
