@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- <script src="script.js"></script> -->
+  </head>
+  <body>
+    <div id="ground">
+      <ul>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+        <li class="person"></li>
+      </ul>
+      <input type="button" value="Back" id="back" class = "page"  />
+      <input type="button" value="Next" id="next" class = "page" />
+      <div id="tablePerson"></div>
+    </div>
+    
+    <!-- <script src="script.js"></script> -->
+    
+    <script>
+      let url = "https://swapi.dev/api/people/";
+      //"https://swapi.dev/api/people/?page=1";
+      let person = document.getElementsByClassName("person");
+
+      let tablePerson = document.querySelector("#tablePerson");
+      let btnBack = document.querySelector("#back");
+      let btnNext = document.querySelector("#next");
+      var info;
+
+      function test() {
+        fetch(url)
+          .then(function (response) {
+            if (response.status !== 200) {
+              console.log(
+                "Looks like there was a problem. Status Code: " +
+                  response.status
+              );
+              return;
+            }
+
+            response.json().then(function (data) {
+              console.dir(data);
+              console.log(data.results);
+              console.log(data.next);
+              //for(var i in data.results) {
+              for (let i = 0; i < person.length; i++) {
+                person[i].innerHTML = data.results[i].name;
+                person[i].addEventListener("click", function(e) {
+                  console.log(e.target);
+                  var temp = String(data.results[i].films).split(' ');
+                  console.log(temp[0]);
+                  
+                  temp = String(temp).split(',').join(" ");
+                  var img = document.createElement('img');
+                  img.setAttribute("href","/FINAL/img/luke.jpg");
+                  tablePerson.appendChild(img);
+                  info = "<table><th>"+ data.results[i].name +"</th><tr><td>Birthday</td><td>" + data.results[i].birth_year + "</td><tr><td>Gender:</td><td>" + data.results[i].gender+"</tr><tr><td>Films</td><td>"+ temp +  "</td><tr><td>Planet:</td><td>" + data.results[i].homeworld + "</tr><tr><td>Species</td><td>" + data.results[i].species +"</td></tr></table>";
+                  tablePerson.innerHTML = info;
+                });
+              }
+
+              btnBack.addEventListener("click", pageBack);
+              btnNext.addEventListener("click", pageNext);
+
+              function pageNext() {
+                if (data.next !== null) {
+                  url = data.next;
+                  info='';
+                  tablePerson.innerHTML = info;
+                  console.log(data);
+                  console.log(url);
+
+                  test();
+                } else {
+                  btnNext.setAttribute("disabled", true);
+                }
+              }
+              function pageBack() {
+                if (data.previous != null) {
+                  url = data.previous;
+                  info='';
+                  tablePerson.innerHTML = info;
+                  //btnBack.removeAttribute("disabled");
+                  test();
+                } 
+                // else {
+                //   btnBack.setAttribute("disabled", true);
+                // }
+              }
+            });
+          })
+          .catch(function (err) {
+            console.error("Fetch Error :-S", err);
+          });
+      }
+      test();
+    </script>
+  </body>
+</html>

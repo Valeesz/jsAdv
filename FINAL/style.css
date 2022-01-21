@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* insert pic with Star Wars */
+    background-image: url(img/4W0KpiW.jpg);
+    overflow:hidden;
+}
+
+#ground, #tablePerson {
+    width: 50%;
+    height: 75%;
+    background-color: rgb(149, 191, 233);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 140px;
+    margin-bottom: auto;
+    background-color: #272b30;
+    color: seashell;
+    font-family: 'Roboto', sans-serif;
+    
+    border-radius: 20px;
+    
+}
+#ground {
+    height: 630px;
+}
+ul {
+    margin: 30px;
+    list-style-type: none;
+    padding-top: 36px;
+    width: 250px;
+}
+.person {
+    margin: 5px;
+}
+#tablePerson {
+    position: relative;
+    /* top: 30px; */
+    left: 390px;
+    bottom: 441px;
+    width: 400px;
+    margin: 0;
+    height: auto;
+}
+table{
+    border: 1px solid white;
+    /* margin: 10px; */
+    height: 400px;
+    width: 400px;
+    margin-top: -67px;
+}
+.page {
+    position: relative;
+    left: 30px;
+    width: 108px;
+    /* margin-right: 6px; */
+    box-shadow: 0 0 10px rgb(0 0 0);
+    margin: 0 0 20px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    
+    padding: 5px;
+
+    font-size: 17px;
+}
+li {
+    background-color: rgb(100 100 100);
+    width: 190px;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+}
+
+th {
+    width: 120px;
+}
+tr, td{
+    border: 1px solid gray;
+    margin: 2px;
+    padding: 0 5px;
+}
